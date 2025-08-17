@@ -100,7 +100,7 @@ const SellerLogin = () => {
                     <FormItem>
                       <FormLabel>Email</FormLabel>
                       <FormControl>
-                        <Input {...field} placeholder="Enter your email" />
+                        <Input {...field} placeholder="admin@example.com" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -116,7 +116,7 @@ const SellerLogin = () => {
                         <Input
                           {...field}
                           type="password"
-                          placeholder="Enter your password"
+                          placeholder="tatank123"
                         />
                       </FormControl>
                       <FormMessage />
