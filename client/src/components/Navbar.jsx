@@ -85,7 +85,7 @@ const Navbar = () => {
             <NavLink to="/cart" className="relative mr-2">
               <ShoppingCart className="w-20 h-20" />
               <div className="absolute w-5 h-5 rounded-full bg-green-400 text-center left-6 bottom-5 text-white">
-                {getCartCount}
+                {getCartCount()}
               </div>
             </NavLink>
           </NavMenuItem>
