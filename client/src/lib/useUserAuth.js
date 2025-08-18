@@ -20,7 +20,7 @@ const useUserAuth = () => {
     useEffect(() => {
         if (data?.success === true) {
             addUser(data?.user);
-            setCartItems(data?.user.cartItems);
+            setCartItems(data?.user.cartItems ?? {});
         }
     }, [data]);
 
