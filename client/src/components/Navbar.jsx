@@ -26,7 +26,7 @@ const Navbar = () => {
   const setSearchQuery = useStore((state) => state.setSearchQuery);
   const searchQuery = useStore((state) => state.searchQuery);
   const addUser = useStore((state) => state.addUser);
-  const getCartCount = useStore((state) => state.getCartCount());
+  const getCartCount = useStore((state) => state.getCartCount);
   const navigate = useNavigate();
 
   const { mutate } = useDelete("/user/logout", {

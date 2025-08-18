@@ -6,7 +6,6 @@ import { toast } from "sonner";
 
 const Orders = () => {
   const currency = useStore((state) => state.currency);
-  const user = useStore((state) => state.user);
   const [orders, setOrders] = useState([]);
 
   const fetchOrders = async () => {

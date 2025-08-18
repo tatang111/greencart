@@ -10,6 +10,7 @@ const MyOrders = () => {
   const user = useStore((state) => state.user);
 
   const fetchMyOrders = async () => {
+    if (!user?._id) return;
     try {
       const { data } = await axiosInstance.get(`/orders/${user._id}`)
       if (data.success) {

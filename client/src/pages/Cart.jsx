@@ -44,8 +44,10 @@ const Cart = () => {
     for (const key in cartItems) {
       const product = products.find((product) => product._id === key);
 
-      product.quantity = cartItems[key];
-      tempArray.push(product);
+      if (product) {
+        product.quantity = cartItems[key];
+        tempArray.push(product);
+      }
     }
 
     setCartArray(tempArray);
@@ -59,6 +61,9 @@ const Cart = () => {
 
   const placeOrder = async () => {
     try {
+      if (!user?._id) {
+        return toast.error("You must be logged in to place an order");
+      }
       if (!selectedAddress) {
         return toast.error("Please select an address");
       }
@@ -126,10 +131,14 @@ const Cart = () => {
             <div className="flex items-center md:gap-6 gap-3">
               <div
                 onClick={() => {
-                  navigate(
-                    `/product/${product.category.toLowerCase()}/${product._id}`
-                  );
-                  scrollTo(0, 0);
+                  if (product.category) {
+                    navigate(
+                      `/product/${product.category.toLowerCase()}/${
+                        product._id
+                      }`
+                    );
+                    scrollTo(0, 0);
+                  }
                 }}
                 className="cursor-pointer w-24 h-24 flex items-center justify-center border border-gray-300 rounded overflow-hidden"
               >

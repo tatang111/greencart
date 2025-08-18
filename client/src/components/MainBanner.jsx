@@ -24,7 +24,7 @@ const MainBanner = () => {
             to="/products"
             className="group flex items-center gap-2 px-7 md:px-9 py-3 bg-primary hover:bg-primary-dull transition rounded text-white cursor-pointer"
           >
-            Show Now
+            Shop Now
             <img
               src={assets.white_arrow_icon}
               alt="arrow"
