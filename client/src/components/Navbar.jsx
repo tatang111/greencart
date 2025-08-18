@@ -22,23 +22,24 @@ import { toast } from "sonner";
 const Navbar = () => {
   const setShowUserLogin = useStore((state) => state.setShowUserLogin);
   const user = useStore((state) => state.user);
-  const setUser = useStore((state) => state.setUser);
+  const setCartItems = useStore((state) => state.setCartItems);
   const setSearchQuery = useStore((state) => state.setSearchQuery);
   const searchQuery = useStore((state) => state.searchQuery);
   const addUser = useStore((state) => state.addUser);
-  const getCartCount = useStore((state) => state.getCartCount);
+  const getCartCount = useStore((state) => state.getCartCount());
   const navigate = useNavigate();
 
   const { mutate } = useDelete("/user/logout", {
     onSuccess: () => {
-      toast.success("Logged out")
+      setCartItems({})
       addUser(null)
+      toast.success("Logged out")
     },
     onError: (err) => {
       console.log(err)
       toast.error("Failed to logout, try again later")
     }
-  })
+  }) 
 
   useEffect(() => {
     if (searchQuery.length > 0) {
@@ -85,7 +86,7 @@ const Navbar = () => {
             <NavLink to="/cart" className="relative mr-2">
               <ShoppingCart className="w-20 h-20" />
               <div className="absolute w-5 h-5 rounded-full bg-green-400 text-center left-6 bottom-5 text-white">
-                {getCartCount()}
+                {getCartCount}
               </div>
             </NavLink>
           </NavMenuItem>

@@ -27,7 +27,7 @@ const Cart = () => {
   const { data } = useGet("/address", ["address"]);
   const user = useStore((state) => state.user);
   const setCartItems = useStore((state) => state.setCartItems);
-  useUserAuth();
+  // useUserAuth();
 
   useEffect(() => {
     if (user) {
@@ -61,8 +61,11 @@ const Cart = () => {
 
   const placeOrder = async () => {
     try {
-      if (!user?._id) {
+      if (!user) {
         return toast.error("You must be logged in to place an order");
+      }
+      if (getCartCount() === 0) {
+        return toast.error("Your cart is empty");
       }
       if (!selectedAddress) {
         return toast.error("Please select an address");

@@ -36,7 +36,7 @@ function App() {
       {!isSellerPath && <Navbar />}
       {showUserLogin && <AuthDialogs />}
 
-      <Toaster richColors position="top-center" />
+      <Toaster richColors position="top-center" closeButton={true} />
       <div
         className={`${isSellerPath ? "" : "px-6 md:px-16 lg:px-24 xl:px-32"}`}
       >
