@@ -32,7 +32,7 @@ const AuthDialogs = () => {
       setEmail('')
       setPassword('')
       setName('')
-      setCartItems(data.user.cartItems);
+      setCartItems(data.user.cartItems ?? {});
       addUser(data.user);
       setShowUserLogin(false);
     },

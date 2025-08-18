@@ -55,7 +55,7 @@ const SellerLogin = () => {
     }
   }, [data]);
 
-  const { mutate } = useMutation({
+  const { mutate, isPending } = useMutation({
     mutationFn: async (values) => {
       const { email, password } = values;
       const res = await axiosInstance.post("/seller/login", {
@@ -124,10 +124,11 @@ const SellerLogin = () => {
                   )}
                 />
                 <Button
+                disabled={isPending}
                   type="submit"
-                  className="w-full bg-primary mt-4 hover:bg-primary-dull cursor-pointer"
+                  className="w-full disabled:opacity-50 disabled:cursor-not-allowed bg-primary mt-4 hover:bg-primary-dull cursor-pointer"
                 >
-                  Login
+                  {isPending ? "Login..." : "Login"}
                 </Button>
               </form>
             </Form>

@@ -94,7 +94,7 @@ const Cart = () => {
         });
 
         if (data?.success) {
-          window.location.replace(data.url)
+          window.location.replace(data.url);
         } else {
           toast.error(data.message);
         }
@@ -148,14 +148,16 @@ const Cart = () => {
                   <div className="flex items-center">
                     <p>Qty:</p>
                     <select
-                      value={cartItems[product._id]}
+                      value={cartItems?.[product._id] ?? 1}
                       onChange={(e) =>
                         updateCartItem(product._id, Number(e.target.value))
                       }
                       className="outline-none"
                     >
                       {Array(
-                        cartItems[product._id] > 9 ? cartItems[product._id] : 9
+                        (cartItems?.[product._id] ?? 1) > 9
+                          ? cartItems?.[product._id] ?? 1
+                          : 9
                       )
                         .fill("")
                         .map((_, index) => (
