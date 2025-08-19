@@ -36,9 +36,18 @@ const MobileNav = () => {
               : "max-h-0 opacity-0 -translate-y-4"
           }`}
         >
-          <NavLink>Home</NavLink>
-          <NavLink>All Product</NavLink>
-          <NavLink>Contact</NavLink>
+          <NavLink to={"/"} onClick={() => setOpenNavMobile(false)}>
+            Home
+          </NavLink>
+          <NavLink to={"/products"} onClick={() => setOpenNavMobile(false)}>
+            All Product
+          </NavLink>
+          <NavLink to={"/contact"} onClick={() => setOpenNavMobile(false)}>
+            Contact
+          </NavLink>
+          <NavLink to={"/seller"} onClick={() => setOpenNavMobile(false)}>
+            Seller
+          </NavLink>
           {user ? (
             <Button
               onClick={() => setUser(null)}

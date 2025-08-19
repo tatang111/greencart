@@ -20,6 +20,7 @@ import { useUpdateCart } from "./lib/useUpdateCart";
 import useUserAuth from "./lib/useUserAuth";
 import { useGetProducts } from "./lib/useGetProducts";
 import LoadingStripe from "./components/LoadingStripe";
+import Contact from "./pages/Contact";
 
 function App() {
   const isSellerPath = useLocation().pathname.includes("seller");
@@ -49,6 +50,7 @@ function App() {
             element={<ProductDetails />}
           />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/add-address" element={<AddAddress />} />
           <Route path="/my-orders" element={<MyOrders />} />
           <Route path="/loader" element={<LoadingStripe />} />

@@ -31,25 +31,25 @@ const Navbar = () => {
 
   const { mutate } = useDelete("/user/logout", {
     onSuccess: () => {
-      setCartItems({})
-      addUser(null)
-      toast.success("Logged out")
+      setCartItems({});
+      addUser(null);
+      toast.success("Logged out");
     },
     onError: (err) => {
-      console.log(err)
-      toast.error("Failed to logout, try again later")
-    }
-  }) 
+      console.log(err);
+      toast.error("Failed to logout, try again later");
+    },
+  });
 
   useEffect(() => {
     if (searchQuery.length > 0) {
       navigate("/products");
     }
   }, [searchQuery]);
-  
+
   const logout = (e) => {
-    mutate()
-  }
+    mutate();
+  };
 
   return (
     <header className="w-full md:flex md:top-0 md:bg-white md:z-100 justify-center shadow">
@@ -70,6 +70,9 @@ const Navbar = () => {
           </NavMenuItem>
           <NavMenuItem>
             <NavLink to="/contact">Contact</NavLink>
+          </NavMenuItem>
+          <NavMenuItem>
+            <NavLink to="/seller">Seller</NavLink>
           </NavMenuItem>
           <NavMenuItem customStyle={true}>
             <div className="relative -mt-1.5">
