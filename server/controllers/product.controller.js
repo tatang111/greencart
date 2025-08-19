@@ -41,7 +41,7 @@ export const productById = async (req, res) => {
     try {
         const id  = req.params.id
         
-        const product = Product.findById(id);
+        const product = Product.findOne({_id: id});
         
         res.status(200).json({ success: true, product })
     } catch (error) {
