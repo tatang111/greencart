@@ -45,6 +45,10 @@ export const useStore = create((set, get) => ({
     },
 
     addToCart: (itemId) => {
+        if (!get().user) {
+            return toast.error("You must logged in to add product")
+        }
+
         let cartData = structuredClone(get().cartItems)
 
         if (cartData[itemId]) {

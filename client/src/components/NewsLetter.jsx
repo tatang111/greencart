@@ -1,4 +1,15 @@
+import { useState } from "react";
+import { toast } from "sonner";
+
 const NewsLetter = () => {
+  const [text, setText] = useState("");
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    setText('')
+    toast.success("Successfully subscribed");
+  };
+
   return (
     <div className="flex flex-col items-center justify-center text-center space-y-2 mt-24 pb-14">
       <h1 className="md:text-4xl text-2xl font-semibold">Never Miss a Deal!</h1>
@@ -6,10 +17,15 @@ const NewsLetter = () => {
         Subscribe to get the latest offers, new arrivals, and exclusive
         discounts
       </p>
-      <form className="flex items-center justify-between max-w-2xl w-full md:h-13 h-12">
+      <form
+        onSubmit={submitHandler}
+        className="flex items-center justify-between max-w-2xl w-full md:h-13 h-12"
+      >
         <input
+          value={text}
+          onChange={(e) => setText(e.target.value)}
           className="border border-gray-300 rounded-md h-full border-r-0 outline-none w-full rounded-r-none px-3 text-gray-500"
-          type="text"
+          type="email"
           placeholder="Enter your email id"
           required
         />
