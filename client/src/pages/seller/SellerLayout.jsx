@@ -8,7 +8,7 @@ const SellerLayout = () => {
   const navigate = useNavigate();
 
   const logout = async () => {
-    const { data } = await axiosInstance.get("/seller/logout");
+    const { data } = await axiosInstance.delete("/seller/logout");
     if (data.success) {
       toast.success("Logged out");
       navigate("/");
