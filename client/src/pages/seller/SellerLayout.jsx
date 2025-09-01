@@ -1,9 +1,21 @@
+import { axiosInstance } from "@/api/axiosInstance";
 import { assets } from "@/assets/assets";
 import { useLogoutSeller } from "@/lib/useLogoutSeller";
 import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 const SellerLayout = () => {
-  const { mutate: logout } = useLogoutSeller();
+  const navigate = useNavigate();
+
+  const logout = async () => {
+    const { data } = await axiosInstance.get("/seller/logout");
+    if (data.success) {
+      toast.success("Logged out");
+      navigate("/");
+    } else {
+      toast.error("Logout failed");
+    }
+  };
 
   const sidebarLinks = [
     { name: "Add Product", path: "/seller", icon: assets.add_icon },
