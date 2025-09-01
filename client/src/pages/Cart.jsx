@@ -28,8 +28,6 @@ const Cart = () => {
   const user = useStore((state) => state.user);
   const setCartItems = useStore((state) => state.setCartItems);
 
-  console.log(user)
-
   useEffect(() => {
     if (user) {
       setAddresses(data?.addresses);
