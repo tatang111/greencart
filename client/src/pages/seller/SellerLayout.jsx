@@ -45,6 +45,18 @@ const SellerLayout = () => {
           >
             Logout
           </button>
+          <button
+            onClick={() => navigate('/')}
+            className="border max-sm:hidden cursor-pointer rounded-full text-sm px-4 py-1"
+          >
+            Back to home
+          </button>
+          <button
+            onClick={() => navigate('/')}
+            className="border md:hidden cursor-pointer rounded-full text-sm px-4 py-1"
+          >
+            Back 
+          </button>
         </div>
       </div>
       <div className="flex">
