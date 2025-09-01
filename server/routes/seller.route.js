@@ -6,7 +6,7 @@ const sellerRouter = Router();
 
 sellerRouter.post("/login", sellerLogin);
 sellerRouter.get("/is-auth", authSeller, isSellerAuth);
-sellerRouter.delete("/logout", authSeller, sellerLogout);
+sellerRouter.get("/logout", authSeller, sellerLogout);
 
 
 export default sellerRouter
