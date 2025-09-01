@@ -27,7 +27,6 @@ const Cart = () => {
   const { data } = useGet("/address", ["address"]);
   const user = useStore((state) => state.user);
   const setCartItems = useStore((state) => state.setCartItems);
-  // useUserAuth();
 
   useEffect(() => {
     if (user) {
