@@ -26,7 +26,6 @@ function App() {
   const isSellerPath = useLocation().pathname.includes("seller");
   const showUserLogin = useStore((state) => state.showUserLogin);
   const isSeller = useStore((state) => state.isSeller);
-  const user = useStore((state) => state.user);
   useUpdateCart();
   useUserAuth()
   useGetProducts()

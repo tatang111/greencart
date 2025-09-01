@@ -1,17 +1,20 @@
 import { axiosInstance } from "@/api/axiosInstance";
 import { assets } from "@/assets/assets";
 import { useLogoutSeller } from "@/lib/useLogoutSeller";
+import { useStore } from "@/store/useStore";
 import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
 const SellerLayout = () => {
   const navigate = useNavigate();
+  const setIsSeller = useStore((state) => state.setIsSeller);
 
   const logout = async () => {
     const { data } = await axiosInstance.delete("/seller/logout");
     if (data.success) {
       toast.success("Logged out");
       navigate("/");
+      setIsSeller(false);
     } else {
       toast.error("Logout failed");
     }
@@ -46,16 +49,16 @@ const SellerLayout = () => {
             Logout
           </button>
           <button
-            onClick={() => navigate('/')}
+            onClick={() => navigate("/")}
             className="border max-sm:hidden cursor-pointer rounded-full text-sm px-4 py-1"
           >
             Back to home
           </button>
           <button
-            onClick={() => navigate('/')}
+            onClick={() => navigate("/")}
             className="border md:hidden cursor-pointer rounded-full text-sm px-4 py-1"
           >
-            Back 
+            Back
           </button>
         </div>
       </div>
