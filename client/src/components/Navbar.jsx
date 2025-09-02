@@ -29,7 +29,7 @@ const Navbar = () => {
   const getCartCount = useStore((state) => state.getCartCount());
   const navigate = useNavigate();
 
-  const { mutate } = useDelete("/user/logout", {
+   const { mutate } = useDelete("/user/logout", {
     onSuccess: () => {
       setCartItems({});
       addUser(null);

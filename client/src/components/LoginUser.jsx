@@ -20,7 +20,6 @@ import { Input } from "./ui/input";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import SignUpUser from "./SignUpUser";
-import { useState } from "react";
 
 const userSchema = z.object({
   email: z.string().email("Invalid email format"),
@@ -28,6 +27,7 @@ const userSchema = z.object({
 });
 
 const LoginUser = ({open, setOpen}) => {
+  
   const form = useForm({
     resolver: zodResolver(userSchema),
     defaultValues: {
